@@ -1,0 +1,12 @@
+.section__row {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.section__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px
+}
