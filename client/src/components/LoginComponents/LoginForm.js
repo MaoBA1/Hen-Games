@@ -4,14 +4,21 @@ import FormSection from "../UI/Form/FormSection";
 import Card from "../UI/Card/Card";
 import "./LoginForm.css";
 
-function LoginForm({ logo, onSignUpClicked }) {
+function LoginForm({ logo, onSignUpClicked, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signupClickHandler = () => onSignUpClicked();
+  const loginClickHandler = (event) => {
+    event.preventDefault();
+    onLogin({ email, password });
+  };
+  const changeEmailHandler = event => setEmail(event.target.value);
+  const changePasswordHandler = event => setPassword(event.target.value);
+
   return (
     <Card className="form-container">
-      <Form>
+      <Form onSubmit={loginClickHandler}>
         <FormSection>
           <Image src={logo} style={{ width: 200 }} />
         </FormSection>
@@ -22,14 +29,24 @@ function LoginForm({ logo, onSignUpClicked }) {
         <Form.Group className="form-group">
           <FormSection>
             <Form.Label>Email addres</Form.Label>
-            <Form.Control type="email"/>
+            <Form.Control
+              value={email}
+              onChange={changeEmailHandler}
+              type="email"
+            />
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password"/>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={changePasswordHandler}
+            />
           </FormSection>
         </Form.Group>
         <Form.Group>
           <FormSection>
-            <Button className="login-button">Login</Button>
+            <Button type="submit" className="login-button">
+              Login
+            </Button>
             <Form.Label onClick={signupClickHandler} className="sign-up__label">
               Sign-Up
             </Form.Label>

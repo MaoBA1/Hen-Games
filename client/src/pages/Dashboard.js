@@ -1,8 +1,11 @@
 import React from "react";
+import NavigationBar from "../components/UI/NavigationBar/NavigationBar";
 
 const Dashboard = props => {
     return(
-        <p>Dashboard</p>
+        <>
+            <NavigationBar/>
+        </>
     )
 }
 

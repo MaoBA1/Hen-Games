@@ -53,6 +53,7 @@ p{
     text-decoration-line: underline;
     font-size: 18px;
     margin: 0 auto;
+    
 }
 
 .forget-password__label {
@@ -65,6 +66,6 @@ p{
     margin: 10px;
 }
 
-.sign-up__label , .forget-password__label, .login-button:hover{
+.sign-up__label , .forget-password__label, .back__label, .login-button:hover{
     cursor: pointer;
 }
